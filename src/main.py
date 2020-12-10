@@ -7,4 +7,8 @@ conn = psycopg2.connect(
     port="25060",
     sslmode="require")
 
-print(conn)
+cur = conn.cursor()
+cur.execute("SELECT * FROM TEAM LIMIT 1")
+print(cur.fetchone())
+cur.close()
+conn.close()
